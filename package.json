@@ -1,7 +1,7 @@
 {
-  "name": "vue-baidu-calendar",
-  "version": "1.0.9",
-  "description": "基于vue3实现的百度日历组件",
+  "name": "vue-ue-sdk",
+  "version": "1.0.1",
+  "description": "基于vue3实现的ue sdk",
   "main": "index.js",
   "module": "index.js",
   "files": [
@@ -13,12 +13,12 @@
   },
   "keywords": [
     "vue",
-    "calendar",
+    "ue",
+    "sdk",
     "vue-next",
-    "vue3",
-    "日历组件"
+    "vue3"
   ],
-  "author": "qiuquanwu <“919403255@qq.com>",
+  "author": "sunji <“2025506282@qq.com>",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.11.1",
