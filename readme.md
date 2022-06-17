@@ -21,19 +21,30 @@ app.mount('#app')
 ```
 App.vue
 ```
-import { app_load，api_register, api_send } from "vue-ue-sdk";
-const url = "127.0.0.1:777"; // UE的服务器地址
-app_load(url, () => {
-    console.log('画面出现之前的回调，可进行一些初始操作');
-    // 监听UE发送过来的消息
-    api_register("onUE4Call", (info) => {
-      console.log(info);
+<template>
+  <UEPlayer />
+</template>
+<script>
+import { app_load, api_register, api_send } from "vue-ue-sdk";
+export default {
+  name: "EditView",
+  mounted() {
+    const url = "127.0.0.1:777"; // UE的服务器地址
+    app_load(url, () => {
+        console.log('画面出现后回调，可进行一些初始操作');
+        // 监听UE发送过来的消息
+        api_register("onUE4Call", (info) => {
+          console.log(info);
+        });
+        // 发送消息给UE
+        api_send("changeWeather", { stauts: 'windy' }, (res)=>{
+            console.log(res);
+        });
     });
-    // 发送消息给UE
-    api_send("changeWeather", { stauts: 'windy' }, (res)=>{
-        console.log(res);
-    });
-});
+  },
+  methods: {},
+};
+</script>
 ```
 
 ## 想了解更多请与UE通信查看API文档
