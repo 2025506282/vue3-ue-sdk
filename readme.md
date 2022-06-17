@@ -8,7 +8,18 @@ $ yarn add vue-ue-sdk --save
 ```
 如果你的网络环境不佳，推荐使用 [cnpm](https://github.com/cnpm/cnpm)。
 
+
 # 使用方法
+main.js
+```
+import { createApp } from 'vue'
+import App from './App.vue'
+import vueUeSdk from 'vue-ue-sdk';
+const app=createApp(App)
+app.use(vueUeSdk)
+app.mount('#app')
+```
+App.vue
 ```
 import { app_load，api_register, api_send } from "vue-ue-sdk";
 const url = "127.0.0.1:777"; // UE的服务器地址
@@ -18,8 +29,13 @@ app_load(url, () => {
     api_register("onUE4Call", (info) => {
       console.log(info);
     });
+    // 发送消息给UE
     api_send("changeWeather", { stauts: 'windy' }, (res)=>{
         console.log(res);
     });
 });
 ```
+
+## 想了解更多请与UE通信查看API文档
+
+[API文档](https://www.digitaltwinworld.cn/doc?type=sdk)
