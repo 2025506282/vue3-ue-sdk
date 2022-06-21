@@ -47,6 +47,6 @@ export default {
 </script>
 ```
 
-## 想了解更多请与UE通信查看API文档
+## 想了解更多与UE通信消息查看API文档
 
 [API文档](https://www.digitaltwinworld.cn/doc?type=sdk)
