@@ -1,3 +1,11 @@
+<!--
+ * @Author: sunji 2025506282@qq.com
+ * @Date: 2022-06-17 16:32:42
+ * @LastEditors: sunji 2025506282@qq.com
+ * @LastEditTime: 2022-07-22 10:19:41
+ * @FilePath: \vue-ue-sdk\readme.md
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 # 安装
 ## 使用 npm 或 yarn 安装
 ```
@@ -47,6 +55,23 @@ export default {
 </script>
 ```
 
-## 想了解更多与UE通信消息查看API文档
+## UE 提供接口接口
 
-[API文档](https://www.digitaltwinworld.cn/doc?type=sdk)
+###  查看风险一张图
+```
+api_send("changeRiskChart", {}, ()=> {
+  // to do
+})
+```
+### 查看监控一张图
+```
+api_send("changeMonitorChart", {}, ()=> {
+  // to do
+})
+```
+### 查看范围
+```
+api_send('changeArea', { area: 100 }, ()=> {
+  // to do
+})
+```
