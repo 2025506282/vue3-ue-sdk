@@ -2,7 +2,7 @@
  * @Author: sunji 2025506282@qq.com
  * @Date: 2022-06-17 16:32:42
  * @LastEditors: sunji 2025506282@qq.com
- * @LastEditTime: 2022-07-22 10:19:41
+ * @LastEditTime: 2022-07-24 17:04:33
  * @FilePath: \vue-ue-sdk\readme.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -69,9 +69,41 @@ api_send("changeMonitorChart", {}, ()=> {
   // to do
 })
 ```
-### 查看范围
+### 前往水灾详情
 ```
-api_send('changeArea', { area: 100 }, ()=> {
+api_send('goToWaterDetail', { }, ()=> {
   // to do
 })
 ```
+### 前往火灾详情
+```
+api_send('goToFireDetail', { }, ()=> {
+  // to do
+})
+```
+
+### 打开火灾与关闭火灾
+```
+api_send('switchFire', { isOpen: false }, ()=> {
+  // to do
+})
+```
+### 打开水灾与关闭水灾
+```
+api_send('switchWater', { isOpen: false }, ()=> {
+  // to do
+})
+```
+### 监听UE点击火灾详情还是水灾详情
+
+```
+api_register('Enter3DSecene',  (res)=> {
+  if(res.type === 'fire') {
+    //
+  }
+  if(res.type === 'water') {
+    //
+  }
+})
+```
+const obj =  {"args":{ type: "fire" },"command":"event","func_name":"changeMonitorChart"}

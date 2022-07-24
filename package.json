@@ -1,6 +1,6 @@
 {
   "name": "vue-ue-sdk",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "基于vue2实现的ue sdk",
   "main": "index.js",
   "module": "index.js",
