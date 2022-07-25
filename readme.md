@@ -2,7 +2,7 @@
  * @Author: sunji 2025506282@qq.com
  * @Date: 2022-06-17 16:32:42
  * @LastEditors: sunji 2025506282@qq.com
- * @LastEditTime: 2022-07-24 17:04:33
+ * @LastEditTime: 2022-07-25 15:31:06
  * @FilePath: \vue-ue-sdk\readme.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -55,7 +55,7 @@ export default {
 </script>
 ```
 
-## UE 提供接口接口
+## UE 提供接口
 
 ###  查看风险一张图
 ```
@@ -87,12 +87,24 @@ api_send('goToFireDetail', { }, ()=> {
 api_send('switchFire', { isOpen: false }, ()=> {
   // to do
 })
+isOpen是布尔值，true是打开，false是关闭
 ```
 ### 打开水灾与关闭水灾
 ```
 api_send('switchWater', { isOpen: false }, ()=> {
   // to do
 })
+isOpen是布尔值，true是打开，false是关闭
+
+```
+
+### 前往场景并切换火灾火水灾详情
+```
+api_send('change3DScene', { id: 6 }, ()=> {
+  // to do
+})
+id: 6 水灾详情
+id: 0 火灾详情
 ```
 ### 监听UE点击火灾详情还是水灾详情
 
@@ -106,4 +118,3 @@ api_register('Enter3DSecene',  (res)=> {
   }
 })
 ```
-const obj =  {"args":{ type: "fire" },"command":"event","func_name":"changeMonitorChart"}

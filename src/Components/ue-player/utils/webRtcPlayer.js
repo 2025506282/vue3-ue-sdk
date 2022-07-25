@@ -33,7 +33,11 @@ export function webRtcPlayer(parOptions) {
         var video = document.getElementById('streamingVideo');
         video.muted = 'muted';
         // video.object-fit = 'fill';
+        video.addEventListener('loadstart', function () {
+            console.log('-------loadstart----------');
+        }, true);
         video.addEventListener('loadedmetadata', function () {
+            console.log('-------loadedmetadata----------');
             if (self.onVideoInitialised) {
                 self.onVideoInitialised();
             }
