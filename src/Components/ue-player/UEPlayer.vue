@@ -1,7 +1,19 @@
+<!--
+ * @Author: sunji 2025506282@qq.com
+ * @Date: 2022-07-27 16:08:05
+ * @LastEditors: sunji 2025506282@qq.com
+ * @LastEditTime: 2022-08-02 14:38:08
+ * @FilePath: \vue-ue-sdk\src\Components\ue-player\UEPlayer.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <template>
-  <div id="player">
-    <div id="videoPlayOverlay"></div>
-    <video id="streamingVideo" playsinline style="width: 100%; height: 100%"/>
+  <div id="playerUI">
+    <div id="player"></div>
+    <video
+      id="streamingVideo"
+      playsinline
+      style="width: 100%; height: 100%; position: absolute"
+    />
   </div>
 </template>
 <script setup>
@@ -19,21 +31,24 @@ export default {
 </script> -->
 
 <style scoped>
+#playerUI {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  /*top: 0;
+	left: 0;*/
+  z-index: 10;
+}
+
 #player {
   width: 100%;
   height: 100%;
-  background-color: black;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
+  position: relative;
+  background-color: #000;
 }
-#videoPlayOverlay {
-  width: 100%;
-  height: 100%;
-  /* background-color: rgba(100, 100, 100, 0.7); */
-  position: absolute;
-  left: 0;
-  top: 0;
+
+/* State to hide overlay, WebRTC communication is in progress and or is playing */
+.hiddenState {
+  display: none;
 }
 </style>

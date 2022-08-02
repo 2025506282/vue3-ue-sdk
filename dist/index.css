@@ -1,1 +1,1 @@
-#player[data-v-4a3c8f35]{width:100%;height:100%;background-color:#000;position:absolute;left:0;top:0;z-index:-1}#videoPlayOverlay[data-v-4a3c8f35]{width:100%;height:100%;position:absolute;left:0;top:0}
+#playerUI[data-v-2c54d622]{width:100%;height:100%;position:absolute;z-index:10}#player[data-v-2c54d622]{width:100%;height:100%;position:relative;background-color:#000}.hiddenState[data-v-2c54d622]{display:none}
