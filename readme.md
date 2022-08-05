@@ -2,7 +2,7 @@
  * @Author: sunji 2025506282@qq.com
  * @Date: 2022-06-17 16:32:42
  * @LastEditors: sunji 2025506282@qq.com
- * @LastEditTime: 2022-07-25 15:31:06
+ * @LastEditTime: 2022-08-05 16:11:56
  * @FilePath: \vue-ue-sdk\readme.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -33,7 +33,7 @@ App.vue
   <UEPlayer />
 </template>
 <script>
-import { app_load, api_register, api_send } from "vue-ue-sdk";
+import { app_load, api_register, api_send, SCENE_ID } from "vue-ue-sdk";
 export default {
   name: "EditView",
   mounted() {
@@ -100,20 +100,20 @@ isOpen是布尔值，true是打开，false是关闭
 
 ### 前往场景并切换火灾火水灾详情
 ```
-api_send('change3DScene', { id: 6 }, ()=> {
+api_send('change3DScene', { type: SCENE_ID.WATER }, ()=> {
   // to do
 })
-id: 6 水灾详情
-id: 0 火灾详情
+type: SCENE_ID.WATER 水灾详情
+type: SCENE_ID.FIRE 火灾详情
 ```
 ### 监听UE点击火灾详情还是水灾详情
 
 ```
 api_register('Enter3DSecene',  (res)=> {
-  if(res.type === 'fire') {
+  if(res.type === SCENE_TYPE.FIRE) {
     //
   }
-  if(res.type === 'water') {
+  if(res.type === SCENE_TYPE.WATER) {
     //
   }
 })

@@ -21,7 +21,7 @@ let ws;
 const WS_OPEN_STATE = 1;
 
 let qualityController = false;
-let matchViewportResolution;
+let matchViewportResolution = true;
 // TODO: Remove this - workaround because of bug causing UE to crash when switching resolutions too quickly
 let lastTimeResized = new Date().getTime();
 let resizeTimeout;
