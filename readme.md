@@ -2,7 +2,7 @@
  * @Author: sunji 2025506282@qq.com
  * @Date: 2022-06-17 16:32:42
  * @LastEditors: sunji 2025506282@qq.com
- * @LastEditTime: 2022-08-08 13:39:58
+ * @LastEditTime: 2022-08-08 15:26:12
  * @FilePath: \vue-ue-sdk\readme.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -102,6 +102,7 @@ isOpen是布尔值，true是打开，false是关闭
 api_send('markSymbol', { type:  'gas'}, ()=> {
   // to do
 })
+type: default // 默认展示全部
 type: gas // 燃气
 type: heat // 热力
 type: bridge // 桥梁
@@ -179,6 +180,7 @@ export const SCENE_TYPE = {
 ```
 // 标记类型
 export const MARK_TYPE = {
+    DEFAULT: 'default', // 默认展示全部
     GAS: 'gas', // 燃气
     HEAT: 'heat', // 热力
     BRIDGE: 'bridge', // 桥梁

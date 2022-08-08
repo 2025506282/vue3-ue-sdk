@@ -470,7 +470,7 @@ function setupWebRtcPlayer(htmlElement, config) {
         }
         if (ws && ws.readyState === WS_OPEN_STATE) {
             showTextOverlay('WebRTC data channel connected... waiting for video');
-            requestQualityControl();
+            // requestQualityControl();
         }
     };
 
