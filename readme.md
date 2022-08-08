@@ -2,7 +2,7 @@
  * @Author: sunji 2025506282@qq.com
  * @Date: 2022-06-17 16:32:42
  * @LastEditors: sunji 2025506282@qq.com
- * @LastEditTime: 2022-08-08 15:26:12
+ * @LastEditTime: 2022-08-08 18:57:20
  * @FilePath: \vue-ue-sdk\readme.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -143,6 +143,14 @@ api_register('Enter3DSecene',  (res)=> {
   if(res.type === SCENE_TYPE.TECHNOLOGY_DETAIL) {
     //
   }
+  // 监听切换到科技风火灾场景详情
+  if(res.type === SCENE_TYPE.TECHNOLOGY_DETAIL_FIRE) {
+    //
+  }
+  // 监听切换到科技风场景水灾详情
+  if(res.type === SCENE_TYPE.TECHNOLOGY_DETAIL_WATER) {
+    //
+  }
 })
 ```
 
@@ -173,6 +181,8 @@ export const SCENE_TYPE = {
     WATER: 'water', // 水灾详情
     TECHNOLOGY: 'technology', // 切换到科技风场景
     TECHNOLOGY_DETAIL: 'technologyDetail', // 切换到科技风场景详情
+    TECHNOLOGY_DETAIL_FIRE: 'technologyDetailFire', // 切换到科技风场景火灾详情
+    TECHNOLOGY_DETAIL_WATER: 'technologyDetailWater', // 切换到科技风场景水灾详情
 }
 ```
 
