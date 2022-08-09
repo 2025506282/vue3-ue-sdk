@@ -2,7 +2,7 @@
  * @Author: sunji 2025506282@qq.com
  * @Date: 2022-06-17 16:32:42
  * @LastEditors: sunji 2025506282@qq.com
- * @LastEditTime: 2022-08-08 18:57:20
+ * @LastEditTime: 2022-08-09 10:36:51
  * @FilePath: \vue-ue-sdk\readme.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -123,32 +123,34 @@ type: SCENE_TYPE.WATER 水灾详情
 type: SCENE_TYPE.FIRE 火灾详情
 type: SCENE_TYPE.TECHNOLOGY 科技风场景
 ```
+
+### 关闭科技风侧边栏UI
+```
+api_send('closeMenuUI')
+```
+
 ### 监听UE切换场景
 
 ```
 api_register('Enter3DSecene',  (res)=> {
 // 监听用户点击切换火灾详情
-  if(res.type === SCENE_TYPE.FIRE) {
+  if(res.type === 'fire') {
     //
   }
   // 监听用户点击切换水灾详情
-  if(res.type === SCENE_TYPE.WATER) {
+  if(res.type === 'water') {
     //
   }
   // 监听切换到科技风场景
-  if(res.type === SCENE_TYPE.TECHNOLOGY) {
-    //
-  }
-  // 监听切换到科技风场景详情
-  if(res.type === SCENE_TYPE.TECHNOLOGY_DETAIL) {
+  if(res.type === 'technology') {
     //
   }
   // 监听切换到科技风火灾场景详情
-  if(res.type === SCENE_TYPE.TECHNOLOGY_DETAIL_FIRE) {
+  if(res.type === 'technologyDetailFire') {
     //
   }
   // 监听切换到科技风场景水灾详情
-  if(res.type === SCENE_TYPE.TECHNOLOGY_DETAIL_WATER) {
+  if(res.type === 'technologyDetailWater') {
     //
   }
 })
