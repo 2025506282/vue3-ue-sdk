@@ -1,4 +1,5 @@
 import { webRtcPlayer } from './webRtcPlayer';
+import { ajax } from './request';
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 // Window events for a gamepad connecting
@@ -1797,12 +1798,7 @@ function load() {
     registerKeyboardEvents();
     start();
 }
-export function app_load(signalServerAddr, onFinish) {
-    console.log('ws to signal server: ', signalServerAddr);
-    signalServer = signalServerAddr;
-    onDataChannelConnected = onFinish;
-    load();
-}
+
 // 前端发消息给后端，并监听返回
 export function api_send(proto, data, callback) {
     let jsonData = { command: 'event', func_name: proto, args: data };
@@ -1842,4 +1838,20 @@ export function api_register(proto, callback) {
 }
 export function api_unregister(proto) {
     responseEventListeners.delete(proto);
+}
+export function app_load(signalServerAddr, onFinish) {
+    console.log('ws to signal server: ', signalServerAddr);
+    signalServer = signalServerAddr;
+    onDataChannelConnected = onFinish;
+    load();
+}
+export function app_load2(url, onFinish) {
+    ajax({
+        path: url,
+        method: 'get',
+    }).then((res) => {
+        if (res && res.data) {
+            app_load(res.data, onFinish)
+        }
+    })
 }
