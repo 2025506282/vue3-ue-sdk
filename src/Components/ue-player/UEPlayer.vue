@@ -2,7 +2,7 @@
  * @Author: sunji 2025506282@qq.com
  * @Date: 2022-07-27 16:08:05
  * @LastEditors: sunji 2025506282@qq.com
- * @LastEditTime: 2022-08-10 14:50:23
+ * @LastEditTime: 2022-08-12 15:51:52
  * @FilePath: \vue-ue-sdk\src\Components\ue-player\UEPlayer.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -50,5 +50,14 @@ export default {
 /* State to hide overlay, WebRTC communication is in progress and or is playing */
 .hiddenState {
   display: none;
+}
+#afkOverlay {
+  margin-top: 30px;
+  color: red;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
 }
 </style>

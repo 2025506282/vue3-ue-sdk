@@ -54,9 +54,9 @@ let file = {
 
 // Optionally detect if the user is not interacting (AFK) and disconnect them.
 let afk = {
-    enabled: false,   // Set to true to enable the AFK system.
+    enabled: true,   // Set to true to enable the AFK system.
     warnTimeout: 120,   // The time to elapse before warning the user they are inactive.
-    closeTimeout: 10,   // The time after the warning when we disconnect the user.
+    closeTimeout: 30,   // The time after the warning when we disconnect the user.
 
     active: false,   // Whether the AFK system is currently looking for inactivity.
     overlay: undefined,   // The UI overlay warning the user that they are inactive.
@@ -270,6 +270,7 @@ function setOverlay(htmlClass, htmlElement, onClickFunction) {
 function showConnectOverlay() {
     setTimeout(() => {
         connect();
+        startAfkWarningTimer();
     }, 300)
 }
 
@@ -318,7 +319,7 @@ function showPlayOverlay() {
 }
 
 function updateAfkOverlayText() {
-    afk.overlay.innerHTML = '<center>No activity detected<br>Disconnecting in ' + afk.countdown + ' seconds<br>Click to continue<br></center>';
+    afk.overlay.innerHTML = '<center>没有检测到活跃状态，自动断开连接计时 ' + afk.countdown + ' s,点击继续连接</center>';
 }
 
 function showAfkOverlay() {
@@ -328,6 +329,7 @@ function showAfkOverlay() {
     // Show the inactivity warning overlay.
     afk.overlay = document.createElement('div');
     afk.overlay.id = 'afkOverlay';
+    afk.overlay.style = `position: relative;text-align: center;z-index:1000;`;
     setOverlay('clickableState', afk.overlay, event => {
         // The user clicked so start the timer again and carry on.
         hideOverlay();
@@ -393,6 +395,7 @@ function createWebRtcOffer() {
 
 function sendInputData(data) {
     if (webRtcPlayerObj) {
+        resetAfkWarningTimer();
         webRtcPlayerObj.send(data);
     }
 }
