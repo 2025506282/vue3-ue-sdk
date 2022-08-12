@@ -347,6 +347,7 @@ function showAfkOverlay() {
     afk.countdownTimer = setInterval(function () {
         afk.countdown--;
         if (afk.countdown == 0) {
+            clearInterval(afk.countdownTimer);
             // The user failed to click so disconnect them.
             hideOverlay();
             ws.close();
