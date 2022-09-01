@@ -1867,7 +1867,7 @@ let curOption = {
     closeTimeout: 30,   // The time after the warning when we disconnect the user.超过两分钟后会提示30秒如果不点击自动断开
 }
 
-export function app_load3(url, option = {}, onFinish) {
+export function app_load3(url, option, onFinish) {
     afk = { ...afk, ...option }
     ajax({
         path: url,

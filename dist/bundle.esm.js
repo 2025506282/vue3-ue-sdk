@@ -1,3 +1,29 @@
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    enumerableOnly && (symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    })), keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = null != arguments[i] ? arguments[i] : {};
+    i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
+      _defineProperty(target, key, source[key]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
+      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+    });
+  }
+
+  return target;
+}
+
 function _regeneratorRuntime() {
   /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
 
@@ -387,6 +413,21 @@ function _asyncToGenerator(fn) {
       _next(undefined);
     });
   };
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
 }
 
 function _unsupportedIterableToArray(o, minLen) {
@@ -2237,6 +2278,19 @@ function app_load2(url, onFinish) {
         }
     });
 }
+function app_load3(url) {
+    var option = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var onFinish = arguments.length > 2 ? arguments[2] : undefined;
+    afk = _objectSpread2(_objectSpread2({}, afk), option);
+    ajax({
+        path: url,
+        method: 'get'
+    }).then(function (res) {
+        if (res && res.data) {
+            app_load(res.data, onFinish);
+        }
+    });
+}
 
 function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
     if (typeof shadowMode !== 'boolean') {
@@ -2406,4 +2460,4 @@ var MARK_TYPE = {
     FIRE_CONTROL: 'fireControl'
 };
 
-export { MARK_TYPE, METHOD_TYPE, SCENE_TYPE, __vue_component__$1 as UEPlayer, api_register, api_send, api_unregister, app_load, app_load2 };
+export { MARK_TYPE, METHOD_TYPE, SCENE_TYPE, __vue_component__$1 as UEPlayer, api_register, api_send, api_unregister, app_load, app_load2, app_load3 };
