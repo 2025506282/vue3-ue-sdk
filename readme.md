@@ -2,7 +2,7 @@
  * @Author: sunji 2025506282@qq.com
  * @Date: 2022-06-17 16:32:42
  * @LastEditors: sunji 2025506282@qq.com
- * @LastEditTime: 2022-08-09 10:36:51
+ * @LastEditTime: 2022-08-29 15:38:57
  * @FilePath: \vue-ue-sdk\readme.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -33,7 +33,7 @@ App.vue
   <UEPlayer />
 </template>
 <script>
-import { app_load, api_register, api_send, SCENE_TYPE, METHOD_TYPE } from "vue-ue-sdk";
+import { app_load, api_register, api_send } from "vue-ue-sdk";
 export default {
   name: "EditView",
   mounted() {
@@ -61,13 +61,27 @@ export default {
 ```
 api_send("changeRiskChart", {}, ()=> {
   // to do
-})
+}) 
 ```
-### 查看监控一张图
+### 查看监控一张图(散热图)
 ```
 api_send("changeMonitorChart", {}, ()=> {
   // to do
 })
+```
+### 前往详情
+```
+api_send('goToDetail', { type: 'fire'}, ()=> {
+  // to do
+})
+type: fire // 火
+type: water // 水
+type: waterSupply // 热力
+type: elevator // 电梯
+type: bridge // 桥梁
+type: fireControlOfForest // 森林消防
+type: fireControlOfBuilding // 建筑消防
+type: heat // 热力
 ```
 ### 前往水灾详情
 ```
@@ -81,7 +95,28 @@ api_send('goToFireDetail', { }, ()=> {
   // to do
 })
 ```
-
+### 打开火灾与关闭火灾
+```
+api_send('switchFire', { isOpen: false }, ()=> {
+  // to do
+})
+```
+### 开关
+```
+api_send('switch', { isOpen: false, type: 'fire' }, ()=> {
+  // to do
+})
+type: water 水灾详情 
+type: fire 火灾详情
+type: technology 科技风场景
+type: waterSupply // 热力
+type: elevator // 电梯
+type: bridge // 桥梁
+type: fireControlOfForest // 森林消防
+type: fireControlOfBuilding // 建筑消防
+type: heat // 热力
+```
+### 
 ### 打开火灾与关闭火灾
 ```
 api_send('switchFire', { isOpen: false }, ()=> {
@@ -112,16 +147,23 @@ type: drain // 排水
 type: subwayTunnel // 地铁隧道
 type: elevator // 电梯
 type: fireControl // 消防
+type: technologyDetail // 
 ```
 
 ### 前往场景例如切换火灾火水灾详情
 ```
-api_send('change3DScene', { type: SCENE_TYPE.WATER }, ()=> {
+api_send('change3DScene', { type: 'water' }, ()=> {
   // to do
 })
-type: SCENE_TYPE.WATER 水灾详情 
-type: SCENE_TYPE.FIRE 火灾详情
-type: SCENE_TYPE.TECHNOLOGY 科技风场景
+type: water 水灾详情 
+type: fire 火灾详情
+type: technology 科技风场景
+type: waterSupply // 热力
+type: elevator // 电梯
+type: bridge // 桥梁
+type: fireControlOfForest // 森林消防
+type: fireControlOfBuilding // 建筑消防
+type: heat // 热力
 ```
 
 ### 关闭科技风侧边栏UI
@@ -155,52 +197,9 @@ api_register('Enter3DSecene',  (res)=> {
   }
 })
 ```
-
-
-
-## 枚举类型
+### 取消注册
 ```
-export const METHOD_TYPE = {
-    // 发送消息
-    CHANE_RISK_CHART: 'changeRiskChart',// 查看风险一张图
-    CHANE_MONITOR_CHART: 'changeMonitorChart',// 查看监控一张图
-    GO_TO_WATER_DETAIL: 'goToWaterDetail',// 前往水灾详情
-    GO_TO_FIRE_DETAIL: 'goToFireDetail',// 前往火灾详情
-    SWITCH_FIRE: 'switchFire',// 打开火灾与关闭火灾
-    SWITCH_WATER: 'switchWater',// 打开水灾与关闭水灾
-    CHANGE_3D_SCENE: 'change3DScene',// 前往场景并切换火灾火水灾详情
-    MARK_SYMBOL: 'markSymbol',//  标记
+api_unregister('Enter3DSecene', ()=>{
 
-    // 监听UE点击火灾详情还是水灾详情还是科技风场景
-    ON_ENTER_3D_SCENE: 'Enter3DSecene', // 监听UE点击火灾详情还是水灾详情
-}
-```
-
-```
-// 场景type，监听UE点击的事件
-export const SCENE_TYPE = {
-    FIRE: 'fire',// 火灾详情
-    WATER: 'water', // 水灾详情
-    TECHNOLOGY: 'technology', // 切换到科技风场景
-    TECHNOLOGY_DETAIL: 'technologyDetail', // 切换到科技风场景详情
-    TECHNOLOGY_DETAIL_FIRE: 'technologyDetailFire', // 切换到科技风场景火灾详情
-    TECHNOLOGY_DETAIL_WATER: 'technologyDetailWater', // 切换到科技风场景水灾详情
-}
-```
-
-
-```
-// 标记类型
-export const MARK_TYPE = {
-    DEFAULT: 'default', // 默认展示全部
-    GAS: 'gas', // 燃气
-    HEAT: 'heat', // 热力
-    BRIDGE: 'bridge', // 桥梁
-    PIPE: 'pipe', // 综合管廊
-    WATER_SUPPLY: 'waterSupply', // 供水
-    DRAIN: 'drain', // 排水
-    SUBWAY_TUNNEL: 'subwayTunnel', // 地铁隧道
-    ELEVATOR: 'elevator', // 电梯
-    FIRE_CONTROL: 'fireControl', //  消防
-}
+})
 ```

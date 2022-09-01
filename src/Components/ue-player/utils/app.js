@@ -1859,3 +1859,22 @@ export function app_load2(url, onFinish) {
         }
     })
 }
+
+// Optionally detect if the user is not interacting (AFK) and disconnect them.
+let curOption = {
+    enabled: true,   // Set to true to enable the AFK system.默认开启超过两分钟自动断开，改为false及自动连接
+    warnTimeout: 120,   // The time to elapse before warning the user they are inactive.默认开启超过两分钟自动断开
+    closeTimeout: 30,   // The time after the warning when we disconnect the user.超过两分钟后会提示30秒如果不点击自动断开
+}
+
+export function app_load3(url, option = {}, onFinish) {
+    afk = { ...afk, ...option }
+    ajax({
+        path: url,
+        method: 'get',
+    }).then((res) => {
+        if (res && res.data) {
+            app_load(res.data, onFinish)
+        }
+    })
+}
