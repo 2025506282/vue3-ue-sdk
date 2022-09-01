@@ -2278,9 +2278,7 @@ function app_load2(url, onFinish) {
         }
     });
 }
-function app_load3(url) {
-    var option = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var onFinish = arguments.length > 2 ? arguments[2] : undefined;
+function app_load3(url, option, onFinish) {
     afk = _objectSpread2(_objectSpread2({}, afk), option);
     ajax({
         path: url,
