@@ -2,12 +2,12 @@
  * @Author: sunji 2025506282@qq.com
  * @Date: 2022-06-17 16:32:42
  * @LastEditors: sunji 2025506282@qq.com
- * @LastEditTime: 2022-09-20 10:39:48
+ * @LastEditTime: 2022-09-21 13:54:42
  * @FilePath: \vue-ue-sdk\readme.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 # 迁移
-使用vuu2开发像素流的，可以迁移到[vue-ue-sdk](https://www.npmjs.com/package/vue-ue-sdk)
+使用vuu2开发像素流的，可以安装[vue-ue-sdk](https://www.npmjs.com/package/vue-ue-sdk)
 # 安装
 ## 使用 npm 或 yarn 安装
 ```
