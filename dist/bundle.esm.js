@@ -1199,7 +1199,6 @@ function playVideoStream() {
             showPlayOverlay();
         });
         requestInitialSettings();
-        requestQualityControl();
         showFreezeFrameOverlay();
         hideOverlay();
     } else {
@@ -1720,11 +1719,6 @@ function emitCommand(descriptor) {
 }
 function requestInitialSettings() {
     sendInputData(new Uint8Array([MessageType.RequestInitialSettings]).buffer);
-}
-function requestQualityControl() {
-    {
-        sendInputData(new Uint8Array([MessageType.RequestQualityControl]).buffer);
-    }
 }
 var normalizeAndQuantizeUnsigned = undefined;
 var normalizeAndQuantizeSigned = undefined;

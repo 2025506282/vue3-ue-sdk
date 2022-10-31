@@ -1,6 +1,6 @@
 {
   "name": "vue3-ue-sdk",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "基于vue3实现的ue sdk",
   "main": "index.js",
   "module": "index.js",
@@ -45,10 +45,5 @@
   },
   "peerDependencies": {
     "vue": "^3.0.4"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/2025506282/vue3-ue-sdk"
-  },
-  "homepage": "https://github.com/2025506282/vue3-ue-sdk"
+  }
 }
